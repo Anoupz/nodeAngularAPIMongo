@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="jumbotron text-center">
+    <h1>Contact Page</h1>
+
+    <p>{{ contact.message }}</p>
+    <!-- display the list using ng-repeat -->
+    <h2>Contact Details</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>City</td>
+            <td>PhoneNumber</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="detail in contact.contacts | orderBy : 'phoneNumber'">
+            <td>{{ detail.name }}</td>
+            <td>{{ detail.city }}</td>
+            <td>{{ detail.phoneNumber }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <!-- form to add computer to the list -->
+    <form class="form-inline" ng-submit="contact.addContacts()">
+        <input type="text" class="form-control" placeholder="name" ng-model="contact.contactData.name">
+        <input type="text" class="form-control" placeholder="city" ng-model="contact.contactData.city">
+        <input type="number" class="form-control" placeholder="No:" ng-model="contact.contactData.phoneNumber">
+        <button type="submit" class="btn btn-success">Add Contact</button>
+    </form>
+</div>
+
+</body>
+</html>
