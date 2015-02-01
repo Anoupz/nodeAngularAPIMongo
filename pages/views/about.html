@@ -1,5 +1,19 @@
 <div class="jumbotron text-center">
     <h1>About Page</h1>
-
-    <p>{{ about.message }}</p>
+    <!-- display the list using ng-repeat -->
+    <h2>My Users List:</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>UserName</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in about.users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.username }}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
