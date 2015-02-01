@@ -7,27 +7,27 @@ angular.module('userService', [])
 
         // get a single user
         userFactory.get = function (id) {
-            return $http.get('http://localhost:8080/api/users/' + id);
+            return $http.get('http://localhost:9090/api/users/' + id);
         };
 
         // get all users
         userFactory.all = function () {
-            return $http.get('http://localhost:8080/api/users/');
+            return $http.get('http://localhost:9090/api/users/');
         };
 
         // create a user
         userFactory.create = function (userData) {
-            return $http.post('http://localhost:8080/api/users/', userData);
+            return $http.post('http://localhost:9090/api/users/', userData);
         };
 
         // update a user
         userFactory.update = function (id, userData) {
-            return $http.put('http://localhost:8080/api/users/' + id, userData);
+            return $http.put('http://localhost:9090/api/users/' + id, userData);
         };
 
         // delete a user
         userFactory.delete = function (id) {
-            return $http.delete('http://localhost:8080/api/users/' + id);
+            return $http.delete('http://localhost:9090/api/users/' + id);
         };
 
         // return our entire userFactory object
