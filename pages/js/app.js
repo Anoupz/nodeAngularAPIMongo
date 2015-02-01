@@ -1,17 +1,23 @@
-angular.module('AngularRouting', ['routingScript', 'ngAnimate'])
+angular.module('AngularRouting', ['routingScript', 'ngAnimate', 'userService'])
     .controller('mainController', function () {
         var mainCtrl = this;
     })
-    .controller('aboutController', function ($http) {
+    .controller('aboutController', function (User) {
         var abtCtl = this;
-       // abtCtl.message = 'Test Page on About';
+        // abtCtl.message = 'Test Page on About';
         // make an API call
-        $http.get('http://localhost:8080/api/users')
-            .then(function (response) {
-                console.log(response);
-                console.log(response.data);
-                abtCtl.users = response.data;
+        /*        $http.get('http://localhost:8080/api/users')
+         .then(function (response) {
+         console.log(response);
+         console.log(response.data);
+         abtCtl.users = response.data;
+         });*/
+
+        User.all()
+            .success(function (response) {
+                abtCtl.users = response;
             });
+
     })
     .controller('homeController', function () {
         var homeCtl = this;
